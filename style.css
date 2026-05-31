@@ -53,6 +53,28 @@ body{
 .wrapper .screen{
     flex:1;
     min-width:100%;
+    transition:all 0.3s;
+}
+
+.category-screen{
+    position:absolute;
+    left:100%;
+    width:100%;
+    top:0;
+    height:100%;
+    padding:30px;
+}
+
+.wrapper.show-category .home-screen{
+    transform:translateX(-100%);
+}
+
+.wrapper.show-category .category-screen{
+transform:translateX(-100%);
+}
+
+.wrapper.show-category .screen-backdrop{
+    transform:translate(-50%, -60%);
 }
 
 
