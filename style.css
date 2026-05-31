@@ -134,5 +134,43 @@ body{
 }
 
 .categories .category:hover{
-    transform:translateY(-10px);
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px 5px #00000062;
+}
+
+.category .left{
+    display:flex;
+    gap:1.5rem;
+    align-items:center;
+}
+
+.category .left img{
+    width:3rem;
+}
+
+.category .content h1{
+    font-size:1.6rem;
+}
+
+.category .content p{
+    color:#2e2e2e;
+    font-size:1rem;
+    opacity:0.6;
+}
+
+.category .options{
+    opacity:0;
+    visibility:hidden;
+    transition:all 0.3s;
+}
+
+.category:hover .options{
+    opacity:1;
+    visibility:visible;
+}
+
+.category .toggle-btn{
+    cursor:pointer;
+    width:2rem;
+    opacity:0.6;
 }
