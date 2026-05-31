@@ -454,6 +454,20 @@ let selectedCategory = categories[0];
 const categoriescontainer = document.querySelector(".categories");
 const categoryTitle= document.querySelector(".category-title");
 const categoryTask= document.querySelector(".category-task");
+const categoryimg=document.querySelector("#category-img");
+const totalTasks = document.querySelector(".totalTasks");
+
+
+const calculateTotal = () => {
+    const categoryTask = task.filter(
+        (task) => task.category.toLowerCase() === selectedCategory.title.
+        toLowerCase()
+        
+    );
+
+    categoryTask.innerHTML = `${categoryTask.length} Tasks`;
+    totalTasks.innerHTML = task.length;
+}
 
 
 
@@ -473,6 +487,8 @@ const rendercategories = () => {
             wrapper.classList.add("show-category");
             selectedCategory = category;
             categoryTitle.innerHTML = category.title;
+            categoryimg.src =`images/${category.img}`;
+            calculateTotal();
             
         })
         div.innerHTML = `
