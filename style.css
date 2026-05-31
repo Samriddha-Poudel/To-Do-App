@@ -342,6 +342,12 @@ transition:all 0.3s;
     transition:all 0.3s;
 }
 
+.add-task-btn.active{
+    z-index:1;
+    bottom:20rem;
+    transform:rotate(45deg);
+}
+
 .add-task-btn:hover{
     transform:scale(1.1);
 }
@@ -353,11 +359,11 @@ transition:all 0.3s;
 
 .add-task{
     position:absolute;
-    bottom:0;
     left:0;
     width:100%;
     padding:20px 30px;
     bottom:-100%;
+    transition:all 0.3s;
 }
 
 .add-task.active{
@@ -444,10 +450,11 @@ transition:all 0.3s;
     background-color:#00000023;
     opacity:0;
     visibility:hidden;
+    transition:all 0.3s;
 
 }
 
-.black-backdrop.acitve{
+.black-backdrop.active{
     opacity:1;
     visibility:visible;
 }
