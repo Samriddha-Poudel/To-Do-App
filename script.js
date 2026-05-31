@@ -448,8 +448,12 @@ let task = [
 ];
 
 
+let selectedCategory = categories[0];
 
-const categoriescontainer = document.querySelector(".categories")
+
+const categoriescontainer = document.querySelector(".categories");
+const categoryTitle= document.querySelector(".category-title");
+const categoryTask= document.querySelector(".category-task");
 
 
 
@@ -464,6 +468,13 @@ const rendercategories = () => {
 
         const div = document.createElement("div");
         div.classList.add("category");
+
+        div.addEventListener("click", () => {
+            wrapper.classList.add("show-category");
+            selectedCategory = category;
+            categoryTitle.innerHTML = category.title;
+            
+        })
         div.innerHTML = `
          
              <div class="left">
