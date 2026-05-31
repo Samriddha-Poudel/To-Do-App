@@ -357,6 +357,11 @@ transition:all 0.3s;
     left:0;
     width:100%;
     padding:20px 30px;
+    bottom:-100%;
+}
+
+.add-task.active{
+    bottom:0;
 }
 
 .add-task .heading{
@@ -418,7 +423,7 @@ transition:all 0.3s;
 
 .add-task-backdrop{
     position:absolute;
-    bottom:-100%;
+    bottom:0;
     left:50%;
     transform:translateX(-50%);
     width:135%;
@@ -437,5 +442,12 @@ transition:all 0.3s;
     height:100%;
     backdrop-filter:blur(5px);
     background-color:#00000023;
+    opacity:0;
+    visibility:hidden;
 
+}
+
+.black-backdrop.acitve{
+    opacity:1;
+    visibility:visible;
 }
