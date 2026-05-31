@@ -7,6 +7,9 @@
 }
 
 
+::-webkit-scrollbar{
+    width:0;
+}
 body{
     font-family:"Poppins", sans-serif;
     min-height:100vh;
