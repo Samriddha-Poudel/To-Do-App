@@ -39,6 +39,9 @@ body{
     }
 }
 
+
+
+
 .screen-backdrop{
     width:135%;
     height:25rem;
@@ -77,7 +80,63 @@ transform:translateX(-100%);
 
 .head-wrapper{
     padding:0 25px;
+    display:flex;
+    align-items:center;
+    gap:2.2rem;
 }
+
+
+.dark-mode-btn{
+    font-size:2rem;
+    cursor:pointer;
+    color:#2e2e2e;
+}
+
+
+.wrapper.dark .screen-backdrop{
+    background-color:#1a1a2e;
+}
+
+
+.wrapper.dark{
+
+    background-color:#1d2633;
+    color:white;
+}
+
+.wrapper.dark .menu-btn{
+    color:#fff;
+}
+
+
+.wrapper.dark .categories .category{
+    background-color:#b4c6db;
+    color:#fff;
+    
+}
+
+
+.wrapper.dark .add-task-backdrop{
+    background-color:#384057;
+}
+
+
+.wrapper.dark .input-group input,
+.wrapper-dark .input-group select{
+    background-color:#a7b1bb;
+    color:#fff;
+
+}
+
+.wrapper.dark .back-btn i{
+    color:#fff;
+}
+
+
+
+
+
+
 .menu-btn{
     width:2rem;
     cursor:pointer;
@@ -135,7 +194,7 @@ transform:translateX(-100%);
     padding-top:1rem;
     display:flex;
     flex-direction:column;
-    gap:1rem;
+    gap:1.3rem;
 }
 
 

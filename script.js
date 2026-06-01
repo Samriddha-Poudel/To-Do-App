@@ -449,6 +449,17 @@ let task = [
         category: "Education",
         completed: false,
     },
+    {
+        id:77,
+        task:"Read a chapter of novel",
+        category:"Education",
+        completed:false,
+    },{
+        id:78,
+        task:"Hang out with firends",
+        category:"Personal",
+        completed:false,
+    },
 
 ];
 
@@ -647,6 +658,22 @@ categories.forEach((category)=>{
     categorySelect.appendChild(option);
 })
 
+
+
+const darkModebtn = document.querySelector(".dark-mode-btn");
+const darkModeIcon = darkModebtn.querySelector("i");
+
+darkModebtn.addEventListener("click", () => {
+    wrapper.classList.toggle('dark');
+    if(wrapper.classList.contains('dark')){
+        darkModeIcon.classList.replace('fa-moon', "fa-sun");
+    }else{
+        darkModeIcon.classList.replace('fa-sun','fa-moon');
+    }
+})
+
+
 getLocal();
 calculateTotal();
+rendercategories();
 renderTasks();
