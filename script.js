@@ -405,7 +405,7 @@ let task = [
     }, {
         id: 68,
         task: "Learn about cryptocurrency",
-        category: "Finacne",
+        category: "Finance",
         completed: false,
     }, {
 
@@ -529,6 +529,18 @@ const rendercategories = () => {
 
         categoriescontainer.appendChild(div);
     });
+
+    const footerdiv= document.createElement("div");
+    footerdiv.classList.add("footer");
+    footerdiv.innerHTML = `
+    <p class="ftr-txt">Madee by Samriddha Poudel</p>
+    <a href="https://github.com/Samriddha-Poudel">
+    <i class="fa-brands fa-github"></i>
+    </a> 
+    
+    `;
+    categoriescontainer.appendChild(footerdiv);
+
 };
 
 const tasksContainer = document.querySelector(".tasks");
