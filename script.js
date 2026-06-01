@@ -579,6 +579,18 @@ const renderTasks = () => {
                                 div.prepend(label);
                                 tasksContainer.appendChild(div);
 
+                                const deleteBtn = div.querySelector(".delete");
+                                deleteBtn.addEventListener("click", () => {
+                                    const index = task.findIndex((item)=>item.id===t.id);
+
+                                    task.splice(index, 1);
+                                    savelocal();
+                                    renderTasks();
+                                })
+                                
+
+
+
         });
     }
 }
