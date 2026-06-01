@@ -443,7 +443,12 @@ let task = [
         task: "Learn 20 minutes New langugae",
         category: "Education",
         completed: false,
-    }
+    }, {
+        id: 76,
+        task: "Learn about theory of relativity",
+        category: "Education",
+        completed: false,
+    },
 
 ];
 
@@ -452,22 +457,24 @@ let selectedCategory = categories[0];
 
 
 const categoriescontainer = document.querySelector(".categories");
-const categoryTitle= document.querySelector(".category-title");
-const categoryTask= document.querySelector(".category-task");
-const categoryimg=document.querySelector("#category-img");
+const categoryTitle = document.querySelector(".category-title");
+const totalcategoryTask = document.querySelector(".category-task");
+const categoryimg = document.querySelector("#category-img");
 const totalTasks = document.querySelector(".totalTasks");
 
 
 const calculateTotal = () => {
     const categoryTask = task.filter(
         (task) => task.category.toLowerCase() === selectedCategory.title.
-        toLowerCase()
-        
+            toLowerCase()
+
     );
 
-    categoryTask.innerHTML = `${categoryTask.length} Tasks`;
+    totalcategoryTask.innerHTML = `${categoryTask.length} Tasks`;
     totalTasks.innerHTML = task.length;
-}
+};
+
+
 
 
 
@@ -487,9 +494,10 @@ const rendercategories = () => {
             wrapper.classList.add("show-category");
             selectedCategory = category;
             categoryTitle.innerHTML = category.title;
-            categoryimg.src =`images/${category.img}`;
+            categoryimg.src = `images/${category.img}`;
             calculateTotal();
-            
+            renderTasks();
+
         })
         div.innerHTML = `
          
@@ -508,8 +516,65 @@ const rendercategories = () => {
                
                `;
 
-               categoriescontainer.appendChild(div);
+        categoriescontainer.appendChild(div);
     });
 };
 
+const tasksContainer = document.querySelector(".tasks");
+
+const renderTasks = () => {
+
+    tasksContainer.innerHTML = "";
+    const categoryTasks = task.filter(
+        (task) =>
+            task.category.toLowerCase() === selectedCategory.title.
+                toLowerCase()
+    );
+
+    if (categoryTasks.length === 0) {
+        tasksContainer.innerHTML = `
+        <p class="no-task"> No task for this category</p> `
+    } else {
+        categoryTasks.forEach((task) => {
+            const div = document.createElement("div");
+            div.classList.add("task-wrapper");
+            const label = document.createElement("label");
+            label.classList.add("task");
+            label.setAttribute("for", task.id);
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = task.id;
+            checkbox.checked = task.completed;
+            div.innerHTML = `  
+            <div class="delete">
+            <i class="fas fa-trash"></i>
+            </div>
+            
+            `;
+
+            label.innerHTML = `
+            
+        <span class="checkmark">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg> 
+                                
+                                </span>
+                                <p>${task.task}  
+                                
+                                `;
+
+                                label.prepend(checkbox);
+                                div.prepend(label);
+                                tasksContainer.appendChild(div);
+
+        });
+    }
+}
+
+
+
+calculateTotal();
 rendercategories();
+renderTasks();

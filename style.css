@@ -461,3 +461,10 @@ transition:all 0.3s;
     opacity:1;
     visibility:visible;
 }
+
+.no-task{
+    margin-top:5rem;
+    text-align:center;
+    font-size:1.5rem;
+    opacity:0.6;
+}
