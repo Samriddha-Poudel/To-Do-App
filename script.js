@@ -535,16 +535,26 @@ const renderTasks = () => {
         tasksContainer.innerHTML = `
         <p class="no-task"> No task for this category</p> `
     } else {
-        categoryTasks.forEach((task) => {
+        categoryTasks.forEach((t) => {
             const div = document.createElement("div");
             div.classList.add("task-wrapper");
             const label = document.createElement("label");
             label.classList.add("task");
-            label.setAttribute("for", task.id);
+            label.setAttribute("for", t.id);
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";
-            checkbox.id = task.id;
-            checkbox.checked = task.completed;
+            checkbox.id = t.id;
+            checkbox.checked = t.completed;
+
+            checkbox.addEventListener("change", () => {
+                const index = task.findIndex((item)=>item.id===t.id);
+                task[index].completed=!task[index].completed;
+                savelocal();
+
+            })
+
+
+
             div.innerHTML = `  
             <div class="delete">
             <i class="fas fa-trash"></i>
@@ -561,7 +571,7 @@ const renderTasks = () => {
                                 </svg> 
                                 
                                 </span>
-                                <p>${task.task}  
+                                <p>${t.task}  
                                 
                                 `;
 
@@ -574,7 +584,21 @@ const renderTasks = () => {
 }
 
 
+const savelocal = () => {
+    localStorage.setItem("tasks", JSON.stringify(task))
+};
 
+const getLocal = () => {
+    const localTasks = JSON.parse(localStorage.getItem("tasks"));
+
+
+    if(localTasks){
+        task = localTasks;
+    }
+}
+
+
+getLocal();
 calculateTotal();
 rendercategories();
 renderTasks();
