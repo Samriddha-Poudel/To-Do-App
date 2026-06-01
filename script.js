@@ -533,7 +533,7 @@ const rendercategories = () => {
     const footerdiv= document.createElement("div");
     footerdiv.classList.add("footer");
     footerdiv.innerHTML = `
-    <p class="ftr-txt">Madee by Samriddha Poudel</p>
+    <p class="ftr-txt">Made by Samriddha Poudel</p>
     <a href="https://github.com/Samriddha-Poudel">
     <i class="fa-brands fa-github"></i>
     </a> 
