@@ -618,11 +618,24 @@ const taskInput = document.querySelector("#task-input");
 
 cancelBtn.addEventListener("click",toggleAddtaskForm );
 addBtn.addEventListener("click", ()=> {
-    const task = taskInput.value;
+    const taskValue = taskInput.value;
     const category = categorySelect.value;
 
     if(task ===""){
         alert("Please enter a task");
+    }else{
+        const newTask= {
+            id : task.length+1,
+            task:taskValue,
+            category,
+            completed:false,
+
+        };
+        task.push(newTask);
+        taskInput.value="";
+        savelocal();
+        toggleAddtaskForm();
+        renderTasks();
     }
 
 })
