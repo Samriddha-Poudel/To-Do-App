@@ -413,6 +413,7 @@ transition:all 0.3s;
     gap:1rem;
     justify-content:flex-end;
     align-items:center;
+
 }
 
 .btn button{
@@ -422,6 +423,7 @@ transition:all 0.3s;
     outline:none;
     font-weight:600;
     cursor:pointer;
+    z-index:2;
 }
 
 .btn button.add-btn{

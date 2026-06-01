@@ -586,12 +586,12 @@ const renderTasks = () => {
                                     task.splice(index, 1);
                                     savelocal();
                                     renderTasks();
-                                })
-                                
-
-
-
+                                });
         });
+
+
+        rendercategories();
+        calculateTotal();
     }
 }
 
@@ -610,7 +610,30 @@ const getLocal = () => {
 }
 
 
+
+const categorySelect = document.querySelector("#category-select");
+const cancelBtn = document.querySelector(".cancel-btn");
+const addBtn= document.querySelector(".add-btn");
+const taskInput = document.querySelector("#task-input"); 
+
+cancelBtn.addEventListener("click",toggleAddtaskForm );
+addBtn.addEventListener("click", ()=> {
+    const task = taskInput.value;
+    const category = categorySelect.value;
+
+    if(task ===""){
+        alert("Please enter a task");
+    }
+
+})
+
+categories.forEach((category)=>{
+    const option = document.createElement("option");
+    option.value=category.title.toLowerCase();
+    option.textContent = category.title;
+    categorySelect.appendChild(option);
+})
+
 getLocal();
 calculateTotal();
-rendercategories();
 renderTasks();
